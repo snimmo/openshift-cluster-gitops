@@ -1,0 +1,25 @@
+- op: add
+  path: /spec/resourceHealthChecks/-
+  value:
+    group: operators.coreos.com
+    kind: ClusterServiceVersion
+    check: |
+      hs = {}
+      if obj.status ~= nil then
+        if obj.status.phase == "Succeeded" then
+          hs.status = "Healthy"
+          hs.message = "CSV is successfully installed"
+          return hs
+        elseif obj.status.phase == "Failed" then
+          hs.status = "Degraded"
+          hs.message = "CSV has failed to install"
+          return hs
+        else
+          hs.status = "Progressing"
+          hs.message = "CSV status: " .. obj.status.phase
+          return hs
+        end
+      end
+      hs.status = "Progressing"
+      hs.message = "CSV status is unknown"
+      return hs

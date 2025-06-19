@@ -1,0 +1,25 @@
+resources:
+  - namespace.yaml
+  - cluster-gitops-argocd-cluster-admin.yaml
+  - cluster-gitops-argocd.yaml
+  - cluster-app-project.yaml
+
+patches:
+  - target:
+      version: v1beta1
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: cluster-gitops
+    path: healthchecks/patch-healthcheck-application.yaml
+  - target:
+      version: v1beta1
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: cluster-gitops
+    path: healthchecks/patch-healthcheck-cluster-service-version.yaml
+  - target:
+      version: v1beta1
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: cluster-gitops
+    path: healthchecks/patch-healthcheck-subscription.yaml
