@@ -1,7 +1,8 @@
 resources:
   - cluster-kube-descheduler-operator
-  - local-storage-operator
+  - external-secrets-operator
   - kubernetes-nmstate-operator
+  - local-storage-operator
   - odf-operator
   - openshift-cert-manager-operator
   - openshift-gitops-operator

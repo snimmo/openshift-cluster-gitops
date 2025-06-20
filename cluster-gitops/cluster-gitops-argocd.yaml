@@ -4,6 +4,8 @@ metadata:
   name: cluster-gitops 
   namespace: cluster-gitops
 spec:
+  sourceNamespaces: 
+    - "*"
   server:
     autoscale:
       enabled: false
