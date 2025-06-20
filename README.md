@@ -34,3 +34,8 @@ Create Secret for Vault Token
 ```shell 
 oc create secret generic vault-token -n openshift-config --from-literal=token=<token>
 ```
+
+Create App-of-Apps for cluster-gitops
+```shell
+oc apply -f cluster-app-of-apps.yaml
+```
