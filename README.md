@@ -48,6 +48,12 @@ oc rollout restart deployment cluster-gitops-server -n cluster-gitops
 oc rollout restart deployment cluster-gitops-repo-server -n cluster-gitops
 ```
 
+```
+oc delete project openshift-gitops
+oc delete project openshift-gitops-operator
+oc get crds -o name | grep '\.argoproj\.io' | xargs oc delete
+```
+
 ## Helpful Link
 
 https://github.com/argoproj/argo-cd/issues/5886#issuecomment-982674357
