@@ -1,4 +1,5 @@
 resources:
+  - cluster-kube-descheduler-operator
   - local-storage-operator
   - kubernetes-nmstate-operator
   - openshift-gitops-operator
