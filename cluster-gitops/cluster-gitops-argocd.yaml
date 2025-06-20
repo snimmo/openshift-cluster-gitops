@@ -4,6 +4,7 @@ metadata:
   name: cluster-gitops 
   namespace: cluster-gitops
 spec:
+  resourceHealthChecks: []
   sourceNamespaces: 
     - "*"
   server:
