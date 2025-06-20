@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: ocs-node-labeler
+  namespace: openshift-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: node-labeler
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+rules:
+  - apiGroups: [""]
+    resources:
+      - nodes
+      - pods
+    verbs:
+      - get
+      - list
+      - patch
+      - label
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: node-labeler
+  namespace: openshift-storage
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-5"
+subjects:
+  - kind: ServiceAccount
+    name: ocs-node-labeler
+    namespace: openshift-storage
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: node-labeler
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: label-storage-nodes
+  generateName: label-storage-nodes-
+  namespace: openshift-storage
+spec:
+  template:
+    spec:
+      containers:
+        - name: labeler
+          image: registry.redhat.io/openshift4/ose-cli
+          env:
+            - name: selector
+              value: 'node-role.kubernetes.io/worker'
+          command:
+            - /bin/bash
+            - -c
+            - |
+              node_count=$(oc get nodes --selector=${selector} --output name | wc -l)
+              if [ ${node_count} -lt 3 ]; then
+                echo "Not enough selected nodes present in cluster"
+                oc get nodes --selector=${selector}
+                exit 1
+              fi
+              echo "Labling the following nodes"
+              oc get nodes --selector=${selector}
+              oc label nodes --selector=${selector} cluster.ocs.openshift.io/openshift-storage="" --overwrite=true
+      restartPolicy: Never
+      serviceAccount: ocs-node-labeler
+      serviceAccountName: ocs-node-labeler
+  backoffLimit: 4
