@@ -1,2 +1,3 @@
 resources:
   - kubernetes-nmstate-operator
+  - openshift-gitops-operator
