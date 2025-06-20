@@ -1,0 +1,31 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+  name: default-lvs
+  namespace: openshift-local-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  deviceInclusionSpec:
+    deviceMechanicalProperties:
+      - NonRotational
+    deviceTypes:
+      - disk
+      - part
+    minSize: 1Gi
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+              - nuc1
+              - nuc2
+              - nuc3
+  storageClassName: default-lvs-storage-class
+  tolerations:
+    - effect: NoSchedule
+      key: node.ocs.openshift.io/storage
+      operator: Equal
+      value: 'true'
+  volumeMode: Block

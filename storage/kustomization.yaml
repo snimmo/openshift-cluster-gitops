@@ -1,0 +1,6 @@
+resources: 
+  - auto-discover-devices.yaml 
+  - default-lvs.yaml
+  - ocsinit.yaml
+  - ocs-storagecluster.yaml
+  - ocs-storagecluster-storagesystem.yaml
