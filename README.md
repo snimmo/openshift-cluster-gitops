@@ -39,3 +39,16 @@ Create App-of-Apps for cluster-gitops
 ```shell
 oc apply -f cluster-app-of-apps.yaml
 ```
+
+
+## Debugging
+
+```
+oc rollout restart deployment cluster-gitops-server -n cluster-gitops
+oc rollout restart deployment cluster-gitops-repo-server -n cluster-gitops
+```
+
+## Helpful Link
+
+https://github.com/argoproj/argo-cd/issues/5886#issuecomment-982674357
+
