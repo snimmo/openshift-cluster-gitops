@@ -1,3 +1,4 @@
 resources:
+  - local-storage-operator
   - kubernetes-nmstate-operator
   - openshift-gitops-operator
