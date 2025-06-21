@@ -44,6 +44,12 @@ oc apply -f cluster-app-of-apps.yaml
 ## Debugging
 
 ```
+kustomize build cluster-gitops
+kustomize build operators
+kustomize build storage
+```
+
+```
 oc rollout restart deployment cluster-gitops-server -n cluster-gitops
 oc rollout restart deployment cluster-gitops-repo-server -n cluster-gitops
 ```
