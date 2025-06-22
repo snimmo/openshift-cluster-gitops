@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dummy-config-map
+  namespace: cluster-gitops
+data:
+  dummy-key: dummy-value

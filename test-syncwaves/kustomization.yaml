@@ -1,2 +1,3 @@
 resources:
-  - test-syncwaves.yaml
+  - dummy-config-map.yaml
+  #- test-syncwaves.yaml
