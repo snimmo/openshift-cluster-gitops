@@ -1,0 +1,8 @@
+resources:
+  - api-certificate.yaml
+  - certificate-patch-job.yaml
+  - cloudflare-api-token-external-secret.yaml
+  - ingress-certificate.yaml
+  - lets-encrypt-cluster-issuer.yaml
+  - trusted-ca-config-map.yaml
+  
