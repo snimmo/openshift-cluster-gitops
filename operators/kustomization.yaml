@@ -1,5 +1,5 @@
 resources:
-  # - cluster-kube-descheduler-operator
+    - cluster-kube-descheduler-operator
     - external-secrets-operator
     - kubernetes-nmstate-operator
   # - kubevirt-hyperconverged

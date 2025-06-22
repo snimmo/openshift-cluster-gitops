@@ -3,6 +3,9 @@ kind: KubeDescheduler
 metadata:
   name: cluster
   namespace: openshift-kube-descheduler-operator
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   deschedulingIntervalSeconds: 3600
   managementState: Managed
