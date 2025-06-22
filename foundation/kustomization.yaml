@@ -1,3 +1,4 @@
 resources:
   - dummy-configmap.yaml
   - enable-console-plugin-rbac.yaml
+  - label-node-rbac.yaml

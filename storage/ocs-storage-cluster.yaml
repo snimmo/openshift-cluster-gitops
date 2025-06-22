@@ -1,7 +1,7 @@
 apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
-  name: ocs-storagecluster
+  name: ocs-storage-cluster
   namespace: openshift-storage
   annotations:
     argocd.argoproj.io/sync-wave: "4"

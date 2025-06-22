@@ -3,5 +3,5 @@ resources:
   - default-lvs.yaml
   - label-node-job.yaml
   - ocsinit.yaml
-  - ocs-storagecluster.yaml
-  - ocs-storagecluster-storagesystem.yaml
+  - ocs-storage-cluster.yaml
+  - ocs-storage-cluster-storagesystem.yaml
