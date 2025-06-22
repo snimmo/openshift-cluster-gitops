@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: enable-odf-console-plugin
   generateName: enable-odf-console-plugin-
-  namespace: openshift-storage
+  namespace: cluster-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "10"
 spec:
