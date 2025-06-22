@@ -1,5 +1,4 @@
 resources:
-  - dummy-configmap.yaml
   - certificate-patch-rbac.yaml
   - enable-console-plugin-rbac.yaml
   - label-node-rbac.yaml
