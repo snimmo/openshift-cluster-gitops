@@ -51,7 +51,8 @@ spec:
             - |
               set -e
               echo "Patching Proxy..."
-              oc patch proxy cluster --type='json' -p='[{"op": "add", "path": "/spec/trustedCA", "value": {"name": "trusted-ca"}}]'
+              oc patch proxy cluster --type='json' \
+                -p='[{"op": "add", "path": "/spec/trustedCA", "value": {"name": "trusted-ca"}}]'
               
               echo "Patching IngressController..."
               oc patch ingresscontroller.operator default \
