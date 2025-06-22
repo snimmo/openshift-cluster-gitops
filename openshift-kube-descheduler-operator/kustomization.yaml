@@ -1,2 +1,2 @@
 resources:
-  - cluster-kube-descheduler.yaml
+  - cluster.yaml
