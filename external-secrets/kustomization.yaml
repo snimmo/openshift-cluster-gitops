@@ -1,5 +1,5 @@
 resources: 
   - namespace.yaml
-  #- external-secrets-operator-config.yaml
+  - external-secrets-operator-config.yaml
   #- vault-cluster-secret-store.yaml
   #- test-external-secret.yaml
