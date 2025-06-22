@@ -1,0 +1,8 @@
+api: v1
+kind: ConfigMap
+metadata:
+  name: dummy-configmap
+  namespace: default
+data:
+  dummy-key: dummy-value
+  another-key: another-value
