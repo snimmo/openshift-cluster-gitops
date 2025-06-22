@@ -65,6 +65,11 @@ oc get crds -o name | grep '\.argoproj\.io' | xargs oc delete
 https://github.com/argoproj/argo-cd/issues/5886#issuecomment-982674357
 
 ```
+oc get packagemanifests -n openshift-marketplace | grep <searchterm>
+oc describe packagemanifests -n openshift-marketplace <operator-name>
+```
+
+```
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 spec:
