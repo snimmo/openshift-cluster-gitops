@@ -64,3 +64,18 @@ oc get crds -o name | grep '\.argoproj\.io' | xargs oc delete
 
 https://github.com/argoproj/argo-cd/issues/5886#issuecomment-982674357
 
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+spec:
+  syncPolicy:
+    syncOptions:
+    - SkipDryRunOnMissingResource=true
+```
+
+```
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+```
+
