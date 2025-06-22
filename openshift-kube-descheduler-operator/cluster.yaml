@@ -9,3 +9,5 @@ spec:
   mode: Predictive
   profiles:
     - AffinityAndTaints
+  profileCustomizations:
+      devEnableEvictionsInBackground: true
