@@ -3,6 +3,4 @@ kind: OperatorGroup
 metadata:
   name: external-secrets
   namespace: external-secrets
-spec:
-  targetNamespaces:
-    - external-secrets
+spec: {}
