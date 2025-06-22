@@ -1,47 +1,14 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: certificate-patcher-sa
-  namespace: openshift-config
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: certificate-patcher-cluster-role
-rules:
-  - apiGroups: ["config.openshift.io"]
-    resources: ["proxies", "apiservers"]
-    verbs: ["get", "patch"]
-  - apiGroups: ["operator.openshift.io"]
-    resources: ["ingresscontrollers"]
-    verbs: ["get", "patch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: certificate-patcher-sa-cluster-rolebinding
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: certificate-patcher-cluster-role
-subjects:
-  - kind: ServiceAccount
-    name: certificate-patcher-sa
-    namespace: openshift-config
----
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: certificate-patch-job
-  namespace: openshift-config
+  namespace: cluster-gitops
+  generateName: certificate-patch-job-
   annotations:
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   template:
     spec:
-      serviceAccountName: certificate-patcher-sa
-      restartPolicy: Never
       containers:
         - name: patcher
           image: registry.redhat.io/openshift4/ose-cli:latest
@@ -64,4 +31,7 @@ spec:
               oc patch apiserver cluster \
                 --type=merge \
                 -p '{"spec":{"servingCerts": {"namedCertificates": [{"names": ["api.ocp.lab.snimmo.com"], "servingCertificate": {"name": "api-ocp-lab-snimmo-com-tls"}}]}}}'
-  backoffLimit: 2
+      restartPolicy: Never
+      serviceAccount: certificate-patch
+      serviceAccountName: certificate-patch
+  backoffLimit: 4
