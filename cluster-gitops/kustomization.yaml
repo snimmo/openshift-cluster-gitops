@@ -28,4 +28,10 @@ patches:
       kind: ArgoCD
       name: cluster-gitops
       namespace: cluster-gitops
+    path: healthchecks/patch-healthcheck-operator-config.yaml
+  - target:
+      version: v1beta1
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: cluster-gitops
     path: healthchecks/patch-healthcheck-subscription.yaml

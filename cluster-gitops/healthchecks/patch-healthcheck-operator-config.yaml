@@ -1,0 +1,22 @@
+- op: add
+  path: /spec/resourceHealthChecks/-
+  value:
+    group: operator.external-secrets.io
+    kind: OperatorConfig
+    check: |
+      hs = {}
+      if obj.status ~= nil and obj.status.conditions ~= nil then
+        for _, condition in ipairs(obj.status.conditions) do
+          if condition.type == "Deployed" and condition.status == "True" then
+            hs.status = "Healthy"
+            hs.message = condition.message or "Operator successfully deployed"
+            return hs
+          end
+        end
+        hs.status = "Progressing"
+        hs.message = "Waiting for Deployed condition to become True"
+        return hs
+      end
+      hs.status = "Unknown"
+      hs.message = "No status information available"
+      return hs
