@@ -2,8 +2,8 @@ resources:
     - cluster-kube-descheduler-operator
     - external-secrets-operator
     - kubernetes-nmstate-operator
-  # - kubevirt-hyperconverged
-  # - local-storage-operator
-  # - odf-operator
-  # - openshift-cert-manager-operator
+    - kubevirt-hyperconverged
+    - local-storage-operator
+    - odf-operator
+    - openshift-cert-manager-operator
     - openshift-gitops-operator
