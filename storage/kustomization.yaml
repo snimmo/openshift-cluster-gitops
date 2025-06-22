@@ -4,4 +4,4 @@ resources:
   - label-node-job.yaml
   - ocsinit.yaml
   - ocs-storage-cluster.yaml
-  - ocs-storage-cluster-storagesystem.yaml
+  - ocs-storage-cluster-storage-system.yaml
