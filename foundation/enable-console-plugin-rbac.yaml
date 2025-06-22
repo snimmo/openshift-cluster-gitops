@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: enable-console-plugin
+  namespace: cluster-gitops
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: enable-console-plugin
+rules:
+  - apiGroups: ["operator.openshift.io"]
+    resources:
+      - consoles
+    verbs:
+      - get
+      - list
+      - patch
+      - label
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: enable-console-plugin
+subjects:
+  - kind: ServiceAccount
+    name: enable-console-plugin
+    namespace: cluster-gitops
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: enable-console-plugin

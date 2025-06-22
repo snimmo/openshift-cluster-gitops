@@ -1,2 +1,3 @@
 resources:
   - dummy-configmap.yaml
+  - enable-console-plugin-rbac.yaml

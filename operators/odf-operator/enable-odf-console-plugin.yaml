@@ -1,36 +1,3 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: enable-odf-console-plugin
-  namespace: openshift-storage
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: enable-odf-console-plugin
-rules:
-  - apiGroups: ["operator.openshift.io"]
-    resources:
-      - consoles
-    verbs:
-      - get
-      - list
-      - patch
-      - label
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: enable-odf-console-plugin
-subjects:
-  - kind: ServiceAccount
-    name: enable-odf-console-plugin
-    namespace: openshift-storage
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: enable-odf-console-plugin
----
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -43,8 +10,8 @@ spec:
   template:
     spec:
       containers:
-        - name: labeler
-          image: registry.redhat.io/openshift4/ose-cli
+        - name: enable-odf-console-plugin
+          image: registry.redhat.io/openshift4/ose-cli:latest
           env:
             - name: PLUGIN_NAME
               value: 'odf-console'
@@ -72,6 +39,6 @@ spec:
                     oc patch consoles.operator.openshift.io cluster --type=json --patch '[{"op": "add", "path": "/spec/plugins/-", "value": "'${PLUGIN_NAME}'"}]'
                 fi
       restartPolicy: Never
-      serviceAccount: enable-odf-console-plugin
-      serviceAccountName: enable-odf-console-plugin
-  backoffLimit: 4
+      serviceAccount: enable-console-plugin
+      serviceAccountName: enable-console-plugin
+  backoffLimit: 3
