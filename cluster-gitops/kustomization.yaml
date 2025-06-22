@@ -16,6 +16,12 @@ patches:
       kind: ArgoCD
       name: cluster-gitops
       namespace: cluster-gitops
+    path: healthchecks/patch-healthcheck-cluster-secret-store.yaml
+  - target:
+      version: v1beta1
+      kind: ArgoCD
+      name: cluster-gitops
+      namespace: cluster-gitops
     path: healthchecks/patch-healthcheck-cluster-service-version.yaml
   - target:
       version: v1beta1
