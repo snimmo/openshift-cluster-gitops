@@ -5,6 +5,7 @@ metadata:
   namespace: openshift-storage
   annotations:
     argocd.argoproj.io/sync-wave: "8"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     cluster.ocs.openshift.io/local-devices: 'true'
     uninstall.ocs.openshift.io/cleanup-policy: delete
     uninstall.ocs.openshift.io/mode: graceful
