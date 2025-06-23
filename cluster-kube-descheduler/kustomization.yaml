@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
-  name: openshift-workload-availability
+  name: cluster-kube-descheduler
 resources:
+  - cluster-kube-descheduler.yaml
   - namespace.yaml
   - operator-group.yaml
-  - self-node-remediation-subscription.yaml
-  - self-node-remediation.yaml
+  - subscription.yaml
