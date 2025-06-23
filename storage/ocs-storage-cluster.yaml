@@ -4,7 +4,7 @@ metadata:
   name: ocs-storage-cluster
   namespace: openshift-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "7"
     cluster.ocs.openshift.io/local-devices: 'true'
     uninstall.ocs.openshift.io/cleanup-policy: delete
     uninstall.ocs.openshift.io/mode: graceful

@@ -4,7 +4,7 @@ metadata:
   name: default-lvs
   namespace: openshift-local-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   deviceInclusionSpec:
     deviceMechanicalProperties:
