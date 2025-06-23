@@ -1,9 +1,0 @@
-resources: 
-  - local-storage-operator
-  - odf-operator
-  - auto-discover-devices.yaml 
-  - default-lvs.yaml
-  - label-node-job.yaml
-  - ocsinit.yaml
-  - ocs-storage-cluster.yaml
-  - ocs-storage-cluster-storage-system.yaml

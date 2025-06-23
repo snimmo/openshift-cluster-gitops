@@ -1,5 +1,0 @@
-resources:
-  - namespace.yaml
-  - operator-group.yaml
-  - subscription.yaml
-  - enable-odf-console-plugin.yaml

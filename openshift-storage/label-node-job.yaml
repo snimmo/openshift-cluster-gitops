@@ -5,7 +5,8 @@ metadata:
   generateName: label-storage-nodes-
   namespace: cluster-gitops
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-type: Job
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
