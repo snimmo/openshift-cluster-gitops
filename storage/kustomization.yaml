@@ -1,4 +1,6 @@
 resources: 
+  - local-storage-operator
+  - odf-operator
   - auto-discover-devices.yaml 
   - default-lvs.yaml
   - label-node-job.yaml
