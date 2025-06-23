@@ -7,7 +7,7 @@ log() {
 }
 
 log "[INFO] Applying OpenShift GitOps operator subscription manifests..."
-oc apply -k operators/openshift-gitops-operator
+oc apply -k openshift-gitops-operator
 
 log "[INFO] Waiting for the OpenShift GitOps Operator to be available..."
 until oc wait --for=condition=Available --timeout=300s deployment/openshift-gitops-operator-controller-manager -n openshift-gitops-operator >/dev/null 2>&1; do

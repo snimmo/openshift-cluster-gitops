@@ -4,7 +4,7 @@ metadata:
   name: apps-ocp-lab-snimmo-com-certificate
   namespace: openshift-ingress
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   commonName: apps.ocp.lab.snimmo.com
   dnsNames:

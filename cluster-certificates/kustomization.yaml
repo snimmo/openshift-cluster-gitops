@@ -1,8 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: cluster-certificates
 resources:
   - api-certificate.yaml
   - certificate-patch-job.yaml
   - cloudflare-api-token-external-secret.yaml
   - ingress-certificate.yaml
   - lets-encrypt-cluster-issuer.yaml
+  - namespace.yaml
+  - operator-group.yaml
+  - subscription.yaml
   - trusted-ca-config-map.yaml
-  

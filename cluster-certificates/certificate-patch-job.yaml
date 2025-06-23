@@ -5,7 +5,9 @@ metadata:
   namespace: cluster-gitops
   generateName: certificate-patch-job-
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-type: Job
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:

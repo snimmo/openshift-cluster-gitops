@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-workload-availability
+  namespace: cluster-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: cluster
+  source:
+    repoURL: https://github.com/snimmo/openshift-cluster-gitops.git
+    targetRevision: main
+    path: openshift-workload-availability
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: "openshift-workload-availability"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
