@@ -12,7 +12,7 @@ oc apply -k openshift-gitops-operator
 log "[INFO] Waiting for the OpenShift GitOps Operator to be available..."
 until oc wait --for=condition=Available --timeout=300s deployment/openshift-gitops-operator-controller-manager -n openshift-gitops-operator >/dev/null 2>&1; do
   log "[INFO] Waiting..."
-  sleep 10
+  sleep 30
 done
 log "[INFO] OpenShift GitOps Operator is now available."
 
@@ -21,8 +21,8 @@ oc apply -k cluster-gitops
 
 log "[INFO] Waiting for deployment/cluster-gitops-server to be created..."
 until oc get deployment cluster-gitops-server -n cluster-gitops >/dev/null 2>&1; do
-  log "[INFO] Still waiting for deployment/cluster-gitops-server to be created..."
-  sleep 10
+  log "[INFO] Waiting..."
+  sleep 30
 done
 
 # Verify ArgoCD is running
