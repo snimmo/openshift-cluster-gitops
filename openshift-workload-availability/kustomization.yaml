@@ -3,7 +3,9 @@ kind: Kustomization
 metadata:
   name: openshift-workload-availability
 resources:
+  - cluster-kube-descheduler-operator-subscription.yaml
+  - cluster-kube-descheduler.yaml
   - namespace.yaml
   - operator-group.yaml
-  - subscription.yaml
+  - self-node-remediation-subscription.yaml
   - self-node-remediation.yaml
