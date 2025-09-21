@@ -1,0 +1,13 @@
+spec:
+  identityProviders:
+    - github:
+        clientID: ffc8ef36bac2bbf817f4
+        clientSecret:
+          name: github-client-secret-g68rz
+        hostname: ''
+        organizations:
+          - snimmo
+        teams: []
+      mappingMethod: claim
+      name: github
+      type: GitHub

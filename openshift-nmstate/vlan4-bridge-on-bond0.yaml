@@ -17,8 +17,5 @@ spec:
         type: linux-bridge
         state: up
         bridge:
-          options:
-            stp:
-              enabled: false
           port:
             - name: vlan4

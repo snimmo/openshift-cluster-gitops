@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: cluster
-  namespace: cluster-gitops
+  namespace: openshift-gitops-cluster
 spec:
   description: Project for managing OpenShift cluster GitOps resources
   sourceRepos:

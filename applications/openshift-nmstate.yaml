@@ -2,9 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: openshift-nmstate
-  namespace: cluster-gitops
+  namespace: openshift-gitops-cluster
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: cluster
   source:

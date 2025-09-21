@@ -16,19 +16,19 @@ until oc wait --for=condition=Available --timeout=300s deployment/openshift-gito
 done
 log "[INFO] OpenShift GitOps Operator is now available."
 
-log "[INFO] Applying OpenShift GitOps instance cluster-gitops manifests..."
-oc apply -k cluster-gitops
+log "[INFO] Applying OpenShift GitOps instance openshift-gitops-cluster manifests..."
+oc apply -k openshift-gitops-cluster
 
-log "[INFO] Waiting for deployment/cluster-gitops-server to be created..."
-until oc get deployment cluster-gitops-server -n cluster-gitops >/dev/null 2>&1; do
+log "[INFO] Waiting for deployment/openshift-gitops-cluster-server to be created..."
+until oc get deployment openshift-gitops-cluster-server -n openshift-gitops-cluster >/dev/null 2>&1; do
   log "[INFO] Waiting..."
   sleep 30
 done
 
 # Verify ArgoCD is running
-log "[INFO] Waiting for deployment/cluster-gitops-server to be ready..."
-oc wait --for=condition=Available --timeout=300s deployment/cluster-gitops-server -n cluster-gitops
-log "[INFO] OpenShift GitOps successfully installed in cluster-gitops."
+log "[INFO] Waiting for deployment/openshift-gitops-cluster-server to be ready..."
+oc wait --for=condition=Available --timeout=300s deployment/openshift-gitops-cluster-server -n openshift-gitops-cluster
+log "[INFO] OpenShift GitOps successfully installed in openshift-gitops-cluster."
 
-ARGOCD_ROUTE=$(oc get route cluster-gitops-server -n cluster-gitops -o jsonpath='{.spec.host}')
+ARGOCD_ROUTE=$(oc get route openshift-gitops-cluster-server -n openshift-gitops-cluster -o jsonpath='{.spec.host}')
 log "[INFO] Cluster Argo CD is accessible at: https://$ARGOCD_ROUTE"

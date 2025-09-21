@@ -1,37 +1,41 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: openshift-gitops-cluster
 resources:
   - namespace.yaml
-  - cluster-gitops-argocd-cluster-admin.yaml
-  - cluster-gitops-argocd.yaml
+  - openshift-gitops-cluster-argocd-cluster-admin.yaml
+  - openshift-gitops-cluster-argocd.yaml
   - cluster-app-project.yaml
 
 patches:
   - target:
       version: v1beta1
       kind: ArgoCD
-      name: cluster-gitops
-      namespace: cluster-gitops
+      name: openshift-gitops-cluster
+      namespace: openshift-gitops-cluster
     path: healthchecks/patch-healthcheck-certificate.yaml
   - target:
       version: v1beta1
       kind: ArgoCD
-      name: cluster-gitops
-      namespace: cluster-gitops
+      name: openshift-gitops-cluster
+      namespace: openshift-gitops-cluster
     path: healthchecks/patch-healthcheck-cluster-secret-store.yaml
   - target:
       version: v1beta1
       kind: ArgoCD
-      name: cluster-gitops
-      namespace: cluster-gitops
+      name: openshift-gitops-cluster
+      namespace: openshift-gitops-cluster
     path: healthchecks/patch-healthcheck-cluster-service-version.yaml
   - target:
       version: v1beta1
       kind: ArgoCD
-      name: cluster-gitops
-      namespace: cluster-gitops
+      name: openshift-gitops-cluster
+      namespace: openshift-gitops-cluster
     path: healthchecks/patch-healthcheck-operator-config.yaml
   - target:
       version: v1beta1
       kind: ArgoCD
-      name: cluster-gitops
-      namespace: cluster-gitops
+      name: openshift-gitops-cluster
+      namespace: openshift-gitops-cluster
     path: healthchecks/patch-healthcheck-subscription.yaml

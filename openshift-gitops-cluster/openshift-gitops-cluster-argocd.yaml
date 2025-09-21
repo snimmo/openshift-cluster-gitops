@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1beta1
 kind: ArgoCD
 metadata:
-  name: cluster-gitops 
-  namespace: cluster-gitops
+  name: openshift-gitops-cluster
+  namespace: openshift-gitops-cluster
 spec:
   resourceHealthChecks: []
   sourceNamespaces: 
