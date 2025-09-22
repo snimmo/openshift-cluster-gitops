@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: sno-notification
+spec:
+  backgroundColor: '#ffff00'
+  color: '#000'
+  location: BannerTop
+  text: SNO
