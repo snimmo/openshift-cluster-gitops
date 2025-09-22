@@ -3,3 +3,4 @@ resources:
 
 patchesStrategicMerge:
   - patch.yaml
+  - timeout-patch.yaml
