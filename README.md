@@ -17,7 +17,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: github-snimmo-openshift-cluster-gitops-credentials
-  namespace: cluster-gitops
+  namespace: openshift-gitops-cluster
   labels:
     argocd.argoproj.io/secret-type: repository
 type: Opaque

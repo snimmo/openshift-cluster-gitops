@@ -1,6 +1,0 @@
-resources:
-  - ../../base
-
-patchesStrategicMerge:
-  - patch.yaml
-  - timeout-patch.yaml

@@ -3,4 +3,6 @@ kind: Kustomization
 metadata:
   name: openshift-gitops-cluster
 resources:
+  - openshift-gitops-cluster.yaml
+  - openshift-gitops-operator.yaml
   - openshift-nmstate.yaml
