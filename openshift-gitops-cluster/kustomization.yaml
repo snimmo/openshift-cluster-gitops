@@ -8,6 +8,7 @@ resources:
   - openshift-gitops-cluster-argocd.yaml
   - cluster-app-project.yaml
   - console-plugin-manager.yaml
+  - node-label-manager.yaml
 
 patches:
   - target:
