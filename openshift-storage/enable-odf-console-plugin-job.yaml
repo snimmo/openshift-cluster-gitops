@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: enable-odf-console-plugin
   generateName: enable-odf-console-plugin-
-  namespace: openshift-cluster-gitops
+  namespace: openshift-gitops-cluster
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-type: Job
