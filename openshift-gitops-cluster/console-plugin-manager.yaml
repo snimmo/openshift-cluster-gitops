@@ -5,10 +5,9 @@ metadata:
   namespace: openshift-gitops-cluster
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: console-plugin-manager-role
-  namespace: openshift-gitops-cluster
 rules:
   - apiGroups:
       - operator.openshift.io
@@ -20,15 +19,14 @@ rules:
       - update
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: console-plugin-manager-role-binding
-  namespace: openshift-gitops-cluster
 subjects:
   - kind: ServiceAccount
     name: console-plugin-manager
     namespace: openshift-gitops-cluster
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: console-plugin-manager-role
