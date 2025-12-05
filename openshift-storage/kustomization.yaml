@@ -11,3 +11,5 @@ resources:
   - label-node-job.yaml
   - auto-discover-devices.yaml
   - default-lvs.yaml
+  - ocsinit.yaml
+  - ocs-storagecluster.yaml

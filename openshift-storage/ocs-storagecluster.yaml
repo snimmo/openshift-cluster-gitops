@@ -1,7 +1,7 @@
 apiVersion: ocs.openshift.io/v1
 kind: StorageCluster
 metadata:
-  name: ocs-storage-cluster
+  name: ocs-storagecluster
   namespace: openshift-storage
   annotations:
     argocd.argoproj.io/sync-wave: "8"
@@ -39,29 +39,11 @@ spec:
     cephCluster: {}
     cephBlockPools:
       defaultStorageClass: true
-    cephNonResilientPools:
-      count: 1
-      resources: {}
-      volumeClaimTemplate:
-        metadata: {}
-        spec:
-          resources: {}
-        status: {}
+      defaultVirtualizationStorageClass: true
+    cephNonResilientPools: {}
     cephObjectStores: {}
-    cephFilesystems:
-      dataPoolSpec:
-        application: ''
-        erasureCoded:
-          codingChunks: 0
-          dataChunks: 0
-        mirroring: {}
-        quotas: {}
-        replicated:
-          size: 0
-        statusCheck:
-          mirror: {}
-    cephRBDMirror:
-      daemonCount: 1
+    cephFilesystems: {}
+    cephRBDMirror: {}
     cephToolbox: {}
     cephDashboard: {}
     cephConfig: {}
