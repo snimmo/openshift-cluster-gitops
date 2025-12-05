@@ -13,9 +13,9 @@ spec:
           - key: kubernetes.io/hostname
             operator: In
             values:
-              - nuc1
-              - nuc2
-              - nuc3
+              - ocp1.lab.snimmo.com
+              - ocp2.lab.snimmo.com
+              - ocp3.lab.snimmo.com
   tolerations:
     - effect: NoSchedule
       key: node.ocs.openshift.io/storage
