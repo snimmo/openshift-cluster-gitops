@@ -9,7 +9,7 @@ resources:
   #syncwave1
   - openshift-nmstate.yaml
   - external-secrets-operator.yaml
-
-  #- openshift-storage.yaml
+  #syncwave2
+  - openshift-storage.yaml
   #- cert-manager-operator.yaml
   #- openshift-cnv.yaml
