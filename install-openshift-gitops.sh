@@ -9,21 +9,24 @@ log() {
 log "[INFO] Applying OpenShift GitOps operator subscription manifests..."
 oc apply -k openshift-gitops-operator
 
-log "[INFO] Waiting for the OpenShift GitOps Operator to be available..."
+echo -n "[INFO] Waiting for the OpenShift GitOps Operator to be available..."
 until oc wait --for=condition=Available --timeout=300s deployment/openshift-gitops-operator-controller-manager -n openshift-gitops-operator >/dev/null 2>&1; do
-  log "[INFO] Waiting..."
+  echo -n "."
   sleep 30
 done
+echo ""
 log "[INFO] OpenShift GitOps Operator is now available."
 
 log "[INFO] Applying OpenShift GitOps instance openshift-gitops-cluster manifests..."
 oc apply -k openshift-gitops-cluster
 
-log "[INFO] Waiting for deployment/openshift-gitops-cluster-server to be created..."
+echo -n "[INFO] Waiting for deployment/openshift-gitops-cluster-server to be created..."
 until oc get deployment openshift-gitops-cluster-server -n openshift-gitops-cluster >/dev/null 2>&1; do
-  log "[INFO] Waiting..."
+  echo -n "."
   sleep 30
 done
+echo ""  # Print a newline when done
+log "[INFO] deployment/openshift-gitops-cluster-server is now created."
 
 # Verify ArgoCD is running
 log "[INFO] Waiting for deployment/openshift-gitops-cluster-server to be ready..."
