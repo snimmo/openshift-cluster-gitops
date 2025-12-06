@@ -6,4 +6,3 @@ resources:
   - namespace.yaml
   - operator-group.yaml
   - subscription.yaml
-  - enable-console-plugin-gitops-job.yaml
