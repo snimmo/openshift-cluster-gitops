@@ -5,7 +5,7 @@ resources:
   - namespace.yaml
   - operator-group.yaml
   - local-storage-operator-subscription.yaml
-  #- odf-operator-subscription.yaml
+  - odf-operator-subscription.yaml
   #- enable-odf-console-plugin-job.yaml
   #- label-node-job.yaml
   #- auto-discover-devices.yaml
