@@ -4,7 +4,7 @@ metadata:
   name: openshift-nmstate
   namespace: openshift-gitops-cluster
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: cluster
   source:
