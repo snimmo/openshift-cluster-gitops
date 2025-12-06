@@ -7,4 +7,4 @@ resources:
   - openshift-gitops-operator.yaml
   - openshift-nmstate.yaml
   - openshift-storage.yaml
-  - openshift-cnv.yaml
+  #- openshift-cnv.yaml

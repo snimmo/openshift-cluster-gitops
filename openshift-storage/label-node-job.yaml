@@ -43,4 +43,4 @@ spec:
       restartPolicy: Never
       serviceAccount: node-label-manager
       serviceAccountName: node-label-manager
-  backoffLimit: 4
+  backoffLimit: 3
