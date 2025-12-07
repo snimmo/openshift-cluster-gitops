@@ -14,3 +14,4 @@ resources:
   #syncwave3
   - cert-manager-operator.yaml
   - openshift-cnv.yaml
+  - openshift-pipelines.yaml
