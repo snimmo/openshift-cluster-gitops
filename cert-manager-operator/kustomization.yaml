@@ -4,3 +4,9 @@ resources:
   - namespace.yaml
   - operator-group.yaml
   - subscription.yaml
+  - trusted-ca-config-map.yaml
+  - cloudflare-api-token-external-secret.yaml
+  - lets-encrypt-cluster-issuer.yaml
+  - ingress-certificate.yaml
+  - api-certificate.yaml
+  - certificate-patch-job.yaml

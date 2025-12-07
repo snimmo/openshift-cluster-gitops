@@ -9,6 +9,7 @@ resources:
   - cluster-app-project.yaml
   - console-plugin-manager.yaml
   - node-label-manager.yaml
+  - certificate-patch-manager.yaml
   - enable-console-plugin-gitops-job.yaml
 
 patches:

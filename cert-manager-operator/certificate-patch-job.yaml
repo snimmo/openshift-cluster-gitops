@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: certificate-patch-job
-  namespace: cluster-gitops
+  namespace: openshift-gitops-cluster
   generateName: certificate-patch-job-
   annotations:
     argocd.argoproj.io/hook: PostSync
@@ -34,6 +34,6 @@ spec:
                 --type=merge \
                 -p '{"spec":{"servingCerts": {"namedCertificates": [{"names": ["api.ocp.lab.snimmo.com"], "servingCertificate": {"name": "api-ocp-lab-snimmo-com-tls"}}]}}}'
       restartPolicy: Never
-      serviceAccount: certificate-patch
-      serviceAccountName: certificate-patch
+      serviceAccount: certificate-patch-manager
+      serviceAccountName: certificate-patch-manager
   backoffLimit: 4
