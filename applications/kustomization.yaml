@@ -11,5 +11,6 @@ resources:
   - external-secrets-operator.yaml
   #syncwave2
   - openshift-storage.yaml
-  #- cert-manager-operator.yaml
-  #- openshift-cnv.yaml
+  #syncwave3
+  - cert-manager-operator.yaml
+  - openshift-cnv.yaml
